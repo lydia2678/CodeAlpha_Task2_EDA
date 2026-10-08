@@ -1,0 +1,92 @@
+CODEALPHA TASK 3 — DATA VISUALIZATION INSIGHTS
+============================================================
+Report Generated: 2026-10-08 18:13:03
+
+1. DATASET OVERVIEW
+------------------------------
+• Total Records: 100
+• Dataset Coverage: January 2024 to April 2024
+• Unique Customers: 100
+• Product Categories: 5
+
+2. REVENUE ANALYSIS
+------------------------------
+• Total Revenue: $14,944.92
+• Average Order Value: $149.45
+• Highest Single Order: $1,399.98
+• Lowest Single Order: $29.99
+• Total Profit: $4,417.35
+• Average Profit Margin: 32.4%
+
+3. PRODUCT CATEGORY INSIGHTS
+------------------------------
+• Highest Revenue Category: Electronics ($6,888)
+• Lowest Revenue Category: Books ($1,533)
+• Most Ordered Category: Electronics (27 orders)
+• Revenue Distribution: Electronics accounts for 46.1% of total revenue
+
+4. REGIONAL PERFORMANCE
+------------------------------
+• Top Performing Region: East ($5,101)
+• Lowest Performing Region: South ($2,718)
+• Most Active Region: East (25 orders)
+• Regional Revenue Gap: 46.7% difference between top and bottom regions
+
+5. CUSTOMER DEMOGRAPHICS
+------------------------------
+• Average Customer Age - Male: 34.3 years
+• Average Customer Age - Female: 32.8 years
+• Male Customer Revenue: $8,329 (55.7%)
+• Female Customer Revenue: $6,616 (44.3%)
+• Highest Spending Age Group: 30-40 ($7,863)
+
+6. SALESPERSON PERFORMANCE
+------------------------------
+• Top Performer: Mike Davis ($5,101)
+• Performance Gap: 46.7% difference between top and bottom performer
+• Most Active Salesperson: John Smith (25 orders)
+
+7. PAYMENT METHOD ANALYSIS
+------------------------------
+• Preferred Payment Method: Credit Card (34 transactions)
+• Highest Revenue Payment Method: Credit Card ($7,452)
+• Highest Average Order Value: Credit Card ($219 per order)
+
+8. TEMPORAL INSIGHTS
+------------------------------
+• Best Month: 2024-02 ($4,843)
+• Lowest Month: 2024-04 ($2,554)
+• Average Monthly Growth: -16.4%
+
+9. KEY RELATIONSHIPS
+------------------------------
+• Strongest Positive Correlation: unit_price ↔ total_amount (r = 0.909)
+• Strongest Negative Correlation: unit_price ↔ profit_margin (r = -0.613)
+
+10. DECISION-MAKING INSIGHTS & RECOMMENDATIONS
+------------------------------
+STRATEGIC RECOMMENDATIONS:
+• FOCUS AREA: Invest more resources in Electronics category (highest revenue generator)
+• EXPANSION: Consider expanding operations in East region
+• TRAINING: Study and replicate Mike Davis's sales strategies
+• CUSTOMER TARGETING: Focus on customers with order values above $149
+• PROFIT OPTIMIZATION: Books has the highest profit margins (35.9%)
+
+OPERATIONAL RECOMMENDATIONS:
+• Payment Processing: Optimize Credit Card payment processing (most used method)
+• Regional Support: Provide additional support to South region
+• Customer Retention: Target 30-40 age group for loyalty programs
+
+11. FINAL CONCLUSION
+------------------------------
+The analysis of 100 sales records reveals strong performance in Electronics
+category and East region. With total revenue of $14,945 and average
+order value of $149, the business shows healthy metrics.
+Key opportunities exist in optimizing underperforming regions and categories.
+
+This analysis supports data-driven decision making for:
+• Resource allocation and investment priorities
+• Regional expansion and optimization strategies
+• Sales team performance improvement
+• Customer segmentation and targeting
+• Product portfolio optimization
