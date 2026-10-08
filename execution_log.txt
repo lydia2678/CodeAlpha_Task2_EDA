@@ -1,0 +1,485 @@
+
+=================================================================
+  CODEALPHA DATA ANALYTICS INTERNSHIP - TASK 2
+  Exploratory Data Analysis of Student Performance Dataset
+=================================================================
+
+=================================================================
+  PHASE 1 - DATASET LOADING AND INSPECTION
+=================================================================
+
+Dataset loaded successfully from: dataset.csv
+Shape: 112 rows × 8 columns
+
+Column names: ['Student_ID', 'Student_Name', 'Gender', 'Age', 'Math_Score', 'English_Score', 'Science_Score', 'Attendance_Percentage']
+
+Data types:
+  Student_ID: str
+  Student_Name: str
+  Gender: str
+  Age: int64
+  Math_Score: float64
+  English_Score: float64
+  Science_Score: float64
+  Attendance_Percentage: float64
+
+First 5 rows:
+  Student_ID  Student_Name  Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+0       S001  Aarav Sharma    Male   19        78.0           82.0           75.0                   88.5
+1       S002   Priya Patel  Female   20        85.0           90.0           88.0                   92.0
+2       S003   Rohan Verma    Male   21        62.0           70.0           65.0                   75.0
+3       S004    Sneha Nair  Female   19        91.0           88.0           93.0                   95.5
+4       S005   Arjun Mehta    Male   22        55.0           60.0           58.0                   68.0
+
+Last 5 rows:
+    Student_ID   Student_Name  Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+107       S028   Suresh Yadav    Male   19         NaN           63.0           59.0                   67.0
+108       S060   Deepak Verma    Male   19        67.0           72.0           69.0                    NaN
+109       S085  Sumitra Joshi  Female   20        71.0            NaN           72.0                   81.0
+110       S012     Meera Iyer  Female   19       110.0           65.0           60.0                   70.0
+111       S046   Kunal Mishra    Male   21        54.0           59.0           56.0                  105.0
+
+=================================================================
+  PHASE 2 - DATA QUALITY ASSESSMENT
+=================================================================
+
+Missing values by column:
+  Student_ID: 0 (0.0%)
+  Student_Name: 0 (0.0%)
+  Gender: 0 (0.0%)
+  Age: 0 (0.0%)
+  Math_Score: 2 (1.8%)
+  English_Score: 2 (1.8%)
+  Science_Score: 1 (0.9%)
+  Attendance_Percentage: 2 (1.8%)
+
+Total missing values: 7
+Exact duplicate rows: 1
+Duplicate Student_IDs: 10
+Student_IDs appearing multiple times:
+  S003: 2 times
+  Records:
+    Student_ID Student_Name Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+2         S003  Rohan Verma   Male   21        62.0           70.0           65.0                   75.0
+102       S003  Rohan Verma   Male   21        62.0           70.0           65.0                   75.0
+  S012: 2 times
+  Records:
+    Student_ID Student_Name  Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+11        S012   Meera Iyer  Female   19        58.0           65.0           60.0                   70.0
+110       S012   Meera Iyer  Female   19       110.0           65.0           60.0                   70.0
+  S019: 2 times
+  Records:
+    Student_ID Student_Name Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+18        S019  Manish Jain   Male   22        53.0           58.0           55.0                   65.0
+104       S019  Manish Jain   Male   22        53.0            NaN           55.0                   65.0
+  S028: 2 times
+  Records:
+    Student_ID  Student_Name Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+27        S028  Suresh Yadav   Male   19        57.0           63.0           59.0                   67.0
+107       S028  Suresh Yadav   Male   19         NaN           63.0           59.0                   67.0
+  S037: 2 times
+  Records:
+    Student_ID  Student_Name  Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+36        S037  Geeta Sharma  Female   20        56.0           62.0           58.0                   66.5
+106       S037  Geeta Sharma  Female   20        56.0           62.0           58.0                    NaN
+  S046: 2 times
+  Records:
+    Student_ID  Student_Name Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+45        S046  Kunal Mishra   Male   21        54.0           59.0           56.0                   64.0
+111       S046  Kunal Mishra   Male   21        54.0           59.0           56.0                  105.0
+  S047: 2 times
+  Records:
+    Student_ID    Student_Name  Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+46        S047  Swati Tripathi  Female   22        78.0           83.0           77.0                   86.5
+103       S047  Swati Tripathi  Female   22         NaN           83.0           77.0                   86.5
+  S060: 2 times
+  Records:
+    Student_ID  Student_Name Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+59        S060  Deepak Verma   Male   19        67.0           72.0           69.0                   77.0
+108       S060  Deepak Verma   Male   19        67.0           72.0           69.0                    NaN
+  S070: 2 times
+  Records:
+    Student_ID Student_Name Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+69        S070  Ramesh Nair   Male   21        55.0           60.0           57.0                   66.0
+105       S070  Ramesh Nair   Male   21        55.0           60.0            NaN                   66.0
+  S085: 2 times
+  Records:
+    Student_ID   Student_Name  Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+84        S085  Sumitra Joshi  Female   20        71.0           76.0           72.0                   81.0
+109       S085  Sumitra Joshi  Female   20        71.0            NaN           72.0                   81.0
+
+Invalid score values (outside 0-100 range):
+  Math_Score: 1 invalid values
+    Invalid values: [110.0]
+  English_Score: 0 invalid values
+  Science_Score: 0 invalid values
+  Attendance_Percentage: 1 invalid values
+    Invalid values: [105.0]
+
+=================================================================
+  PHASE 3 - DATA CLEANING
+=================================================================
+
+Step 1: Removing exact duplicate rows...
+  Exact duplicate rows removed: 1
+
+Step 2: Handling duplicate Student_IDs...
+  Found 9 Student_IDs with duplicates
+
+  Processing duplicates for S012:
+    Student_ID Student_Name  Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+11        S012   Meera Iyer  Female   19        58.0           65.0           60.0                   70.0
+109       S012   Meera Iyer  Female   19       110.0           65.0           60.0                   70.0
+    Removed 1 duplicate entries for S012
+
+  Processing duplicates for S019:
+    Student_ID Student_Name Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+18        S019  Manish Jain   Male   22        53.0           58.0           55.0                   65.0
+103       S019  Manish Jain   Male   22        53.0            NaN           55.0                   65.0
+    Removed 1 duplicate entries for S019
+
+  Processing duplicates for S028:
+    Student_ID  Student_Name Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+27        S028  Suresh Yadav   Male   19        57.0           63.0           59.0                   67.0
+105       S028  Suresh Yadav   Male   19         NaN           63.0           59.0                   67.0
+    Removed 1 duplicate entries for S028
+
+  Processing duplicates for S037:
+    Student_ID  Student_Name  Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+36        S037  Geeta Sharma  Female   20        56.0           62.0           58.0                   66.5
+104       S037  Geeta Sharma  Female   20        56.0           62.0           58.0                    NaN
+    Removed 1 duplicate entries for S037
+
+  Processing duplicates for S046:
+    Student_ID  Student_Name Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+45        S046  Kunal Mishra   Male   21        54.0           59.0           56.0                   64.0
+106       S046  Kunal Mishra   Male   21        54.0           59.0           56.0                  105.0
+    Removed 1 duplicate entries for S046
+
+  Processing duplicates for S047:
+    Student_ID    Student_Name  Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+46        S047  Swati Tripathi  Female   22        78.0           83.0           77.0                   86.5
+102       S047  Swati Tripathi  Female   22         NaN           83.0           77.0                   86.5
+    Removed 1 duplicate entries for S047
+
+  Processing duplicates for S060:
+    Student_ID  Student_Name Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+59        S060  Deepak Verma   Male   19        67.0           72.0           69.0                   77.0
+103       S060  Deepak Verma   Male   19        67.0           72.0           69.0                    NaN
+    Removed 1 duplicate entries for S060
+
+  Processing duplicates for S070:
+    Student_ID Student_Name Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+69        S070  Ramesh Nair   Male   21        55.0           60.0           57.0                   66.0
+102       S070  Ramesh Nair   Male   21        55.0           60.0            NaN                   66.0
+    Removed 1 duplicate entries for S070
+
+  Processing duplicates for S085:
+    Student_ID   Student_Name  Gender  Age  Math_Score  English_Score  Science_Score  Attendance_Percentage
+84        S085  Sumitra Joshi  Female   20        71.0           76.0           72.0                   81.0
+102       S085  Sumitra Joshi  Female   20        71.0            NaN           72.0                   81.0
+    Removed 1 duplicate entries for S085
+  Remaining duplicate Student_IDs: 0
+
+Step 3: Handling invalid score values...
+  Math_Score: 0 invalid values converted to NaN
+  English_Score: 0 invalid values converted to NaN
+  Science_Score: 0 invalid values converted to NaN
+
+Step 4: Handling invalid attendance values...
+  Attendance_Percentage: 0 invalid values converted to NaN
+
+Step 5: Imputing missing numerical values...
+
+Step 6: Imputing missing categorical values...
+
+=================================================================
+  POST-CLEANING VALIDATION (CRITICAL)
+=================================================================
+
+1. Total missing values: 0
+  PASS: No missing values
+
+2. Exact duplicate rows: 0
+  PASS: No exact duplicates
+
+3. Duplicate Student_IDs: 0
+  PASS: No duplicate Student_IDs
+
+4. Total invalid score values: 0
+  PASS: All score values in valid range (0-100)
+
+5. Invalid attendance values: 0
+  PASS: All attendance values in valid range (0-100)
+
+6. Final shape: (102, 8)
+Final data types:
+  Student_ID: str
+  Student_Name: str
+  Gender: str
+  Age: int64
+  Math_Score: float64
+  English_Score: float64
+  Science_Score: float64
+  Attendance_Percentage: float64
+
+==================================================
+  CLEANING VALIDATION: PASSED
+==================================================
+
+=================================================================
+  PHASE 4 - OVERALL AVERAGE CALCULATION
+=================================================================
+Overall_Average calculated for 102 students
+Overall_Average missing values: 0
+SUCCESS: Overall_Average has no missing values
+
+Overall_Average statistics:
+  Min: 55.33
+  Max: 95.00
+  Mean: 77.16
+  Median: 78.00
+
+Cleaned dataset saved to: cleaned_dataset.csv
+
+=================================================================
+  PHASE 5 - DESCRIPTIVE STATISTICS
+=================================================================
+
+Descriptive statistics for 5 numerical variables:
+Based on final cleaned dataset with 102 rows
+
+Math_Score:
+  Count: 102
+  Mean: 76.17
+  Median: 77.00
+  Std Dev: 11.43
+  Min: 53.00
+  Max: 96.00
+  Q1 (25%): 67.25
+  Q3 (75%): 85.75
+
+English_Score:
+  Count: 102
+  Mean: 79.26
+  Median: 81.00
+  Std Dev: 9.10
+  Min: 58.00
+  Max: 94.00
+  Q1 (25%): 73.25
+  Q3 (75%): 86.00
+
+Science_Score:
+  Count: 102
+  Mean: 76.05
+  Median: 75.50
+  Std Dev: 10.81
+  Min: 55.00
+  Max: 97.00
+  Q1 (25%): 68.00
+  Q3 (75%): 84.75
+
+Attendance_Percentage:
+  Count: 102
+  Mean: 83.93
+  Median: 84.75
+  Std Dev: 8.99
+  Min: 64.00
+  Max: 98.50
+  Q1 (25%): 77.50
+  Q3 (75%): 91.38
+
+Overall_Average:
+  Count: 102
+  Mean: 77.16
+  Median: 78.00
+  Std Dev: 10.29
+  Min: 55.33
+  Max: 95.00
+  Q1 (25%): 69.41
+  Q3 (75%): 85.25
+
+
+=================================================================
+  PHASE 6 - MEANINGFUL EDA QUESTIONS
+=================================================================
+
+Q1. What is the average Math score?
+    Answer: 76.17
+
+Q2. What is the average English score?
+    Answer: 79.26
+
+Q3. What is the average Science score?
+    Answer: 76.05
+
+Q4. Which subject has the highest average?
+    Answer: English_Score (79.26)
+
+Q5. Which subject has the lowest average?
+    Answer: Science_Score (76.05)
+
+Q6. Who are the top 5 students based on Overall_Average?
+    Answer:
+      1. Shreya Pillai (S018) - 95.00
+      2. Chirag Mehta (S076) - 93.67
+      3. Sachin Patil (S038) - 93.33
+      4. Suraj Sharma (S082) - 93.00
+      5. Kavitha Sundaram (S059) - 92.67
+
+Q7. Who are the bottom 5 students based on Overall_Average?
+    Answer:
+      1. Manish Jain (S019) - 55.33
+      2. Kunal Mishra (S046) - 56.33
+      3. Ramesh Nair (S070) - 57.33
+      4. Arjun Mehta (S005) - 57.67
+      5. Geeta Sharma (S037) - 58.67
+
+Q8. Is attendance strongly related to Math score?
+    Answer: Correlation = 0.9938
+    Interpretation: Strong positive relationship
+
+Q9. Is attendance strongly related to Overall_Average?
+    Answer: Correlation = 0.9956
+    Interpretation: Strong positive relationship
+
+Q10. What is the average Overall_Average by Gender?
+     Female: 78.27
+     Male: 76.09
+
+Q11. How many students have attendance >= 85%?
+     Answer: 51 students (50.0%)
+
+=================================================================
+  PHASE 7 - CORRELATION ANALYSIS
+=================================================================
+
+Correlation matrix for 5 variables:
+(Values range from -1 to +1, where ±1 = perfect correlation, 0 = no correlation)
+
+Correlation Matrix:
+                       Math_Score  English_Score  Science_Score  Attendance_Percentage  Overall_Average
+Math_Score                 1.0000         0.9509         0.9852                 0.9938           0.9954
+English_Score              0.9509         1.0000         0.9238                 0.9648           0.9702
+Science_Score              0.9852         0.9238         1.0000                 0.9808           0.9871
+Attendance_Percentage      0.9938         0.9648         0.9808                 1.0000           0.9956
+Overall_Average            0.9954         0.9702         0.9871                 0.9956           1.0000
+
+Strongest correlations (excluding self-correlations):
+  1. Attendance_Percentage ↔ Overall_Average: r = 0.9956
+  2. Math_Score ↔ Overall_Average: r = 0.9954
+  3. Math_Score ↔ Attendance_Percentage: r = 0.9938
+  4. Science_Score ↔ Overall_Average: r = 0.9871
+  5. Math_Score ↔ Science_Score: r = 0.9852
+
+Important note: Correlation indicates association, not causation.
+
+=================================================================
+  PHASE 8 - OUTLIER ANALYSIS
+=================================================================
+Using IQR method (1.5 × IQR rule) for statistical outlier detection
+Note: Domain-level anomalies (invalid values) were already corrected in cleaning
+
+Math_Score:
+  Q1: 67.25, Q3: 85.75, IQR: 18.50
+  Outlier bounds: < 39.50 or > 113.50
+  Statistical outliers: 0
+
+English_Score:
+  Q1: 73.25, Q3: 86.00, IQR: 12.75
+  Outlier bounds: < 54.12 or > 105.12
+  Statistical outliers: 0
+
+Science_Score:
+  Q1: 68.00, Q3: 84.75, IQR: 16.75
+  Outlier bounds: < 42.88 or > 109.88
+  Statistical outliers: 0
+
+Attendance_Percentage:
+  Q1: 77.50, Q3: 91.38, IQR: 13.88
+  Outlier bounds: < 56.69 or > 112.19
+  Statistical outliers: 0
+
+Overall_Average:
+  Q1: 69.41, Q3: 85.25, IQR: 15.83
+  Outlier bounds: < 45.67 or > 109.00
+  Statistical outliers: 0
+
+Total statistical outliers across all variables: 0
+Note: Statistical outliers are retained as they represent genuine data variation
+
+=================================================================
+  PHASE 9 - HYPOTHESIS TESTING
+=================================================================
+scipy.stats is available for statistical testing
+
+Test 1: Attendance vs Math Score Relationship
+--------------------------------------------------
+H0: There is no significant relationship between attendance and Math score
+H1: There is a significant relationship between attendance and Math score
+Method: Pearson correlation coefficient
+Correlation coefficient (r): 0.9938
+P-value: p < 0.001
+Significance level: α = 0.05
+Decision: Reject H0
+Interpretation: There IS a statistically significant relationship
+
+Test 2: Attendance vs Overall Average Relationship
+--------------------------------------------------
+H0: There is no significant relationship between attendance and Overall_Average
+H1: There is a significant relationship between attendance and Overall_Average
+Method: Pearson correlation coefficient
+Correlation coefficient (r): 0.9956
+P-value: p < 0.001
+Significance level: α = 0.05
+Decision: Reject H0
+Interpretation: There IS a statistically significant relationship
+
+Test 3: Gender Difference in Overall Average
+--------------------------------------------------
+H0: There is no significant difference in Overall_Average between gender groups
+H1: There is a significant difference in Overall_Average between gender groups
+Group 1 (Male): n = 52, mean = 76.09
+Group 2 (Female): n = 50, mean = 78.27
+Method: Independent two-sample t-test
+Test statistic (t): -1.0727
+P-value: p = 0.286
+Significance level: α = 0.05
+Decision: Fail to reject H0
+Interpretation: There is NO statistically significant difference between groups
+
+Hypothesis Testing Summary:
+------------------------------
+
+Attendance vs Math Score:
+  Method: Pearson correlation
+  Statistic: 0.9938
+  P-value: p < 0.001
+  Decision: Reject H0
+  Result: There IS a statistically significant relationship
+
+Attendance vs Overall Average:
+  Method: Pearson correlation
+  Statistic: 0.9956
+  P-value: p < 0.001
+  Decision: Reject H0
+  Result: There IS a statistically significant relationship
+
+Gender Performance Difference:
+  Method: Independent t-test
+  Statistic: -1.0727
+  P-value: p = 0.286
+  Decision: Fail to reject H0
+  Result: There is NO statistically significant difference between groups
+
+=================================================================
+  PHASE 10 - VISUALIZATIONS
+=================================================================
+Creating math_distribution.png...
+Creating subject_average.png...
+Creating attendance_vs_math.png...
+Creating gender_distribution.png...
+Creating score_comparison.png...
+
+CRITICAL ERROR: boxplot() got an unexpected keyword argument 'labels'
+Project execution failed!

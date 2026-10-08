@@ -1,0 +1,168 @@
+=================================================================
+  CODEALPHA TASK 2 – EDA ANALYSIS RESULTS
+  Exploratory Data Analysis of Student Performance Dataset
+=================================================================
+
+1. DATASET OVERVIEW
+----------------------------------------
+   Source file     : dataset.csv
+   Rows            : 111
+   Columns         : 9
+
+2. DATASET DIMENSIONS
+----------------------------------------
+   Shape: 111 rows × 9 columns
+
+3. COLUMN INFORMATION
+----------------------------------------
+   Student_ID
+   Student_Name
+   Gender
+   Age
+   Math_Score
+   English_Score
+   Science_Score
+   Attendance_Percentage
+   Overall_Average
+
+4. DATA TYPES
+----------------------------------------
+   Student_ID                    : str
+   Student_Name                  : str
+   Gender                        : str
+   Age                           : int64
+   Math_Score                    : float64
+   English_Score                 : float64
+   Science_Score                 : float64
+   Attendance_Percentage         : float64
+   Overall_Average               : float64
+
+5. MISSING VALUE ANALYSIS (original dataset)
+----------------------------------------
+   Student_ID                    : 0
+   Student_Name                  : 0
+   Gender                        : 0
+   Age                           : 0
+   Math_Score                    : 2
+   English_Score                 : 2
+   Science_Score                 : 1
+   Attendance_Percentage         : 2
+   Total missing: 7
+
+6. DUPLICATE ANALYSIS (original dataset)
+----------------------------------------
+   Duplicate rows found: 1
+
+7. DATA CLEANING SUMMARY
+----------------------------------------
+   • Duplicate rows removed.
+   • Out-of-range score/attendance values set to NaN then imputed.
+   • Missing numerical values filled with column median.
+   • Missing categorical values filled with mode.
+   • Cleaned dataset saved: cleaned_dataset.csv
+
+8. DESCRIPTIVE STATISTICS
+----------------------------------------
+   Math_Score:
+     Mean=75.23  Median=76.00  Std=11.87  Min=53.00  Max=96.00
+   English_Score:
+     Mean=78.43  Median=80.00  Std=9.57  Min=58.00  Max=94.00
+   Science_Score:
+     Mean=75.12  Median=74.50  Std=11.12  Min=55.00  Max=97.00
+   Attendance_Percentage:
+     Mean=83.30  Median=84.25  Std=9.33  Min=64.00  Max=98.50
+   Overall_Average:
+     Mean=76.71  Median=78.00  Std=10.52  Min=55.33  Max=95.00
+
+9. MEANINGFUL QUESTIONS AND ANSWERS
+----------------------------------------
+   Q1.  Avg Math Score    : 75.23
+   Q2.  Avg English Score : 78.43
+   Q3.  Avg Science Score : 75.12
+   Q4.  Highest subject   : English_Score (78.43)
+   Q5.  Lowest subject    : Science_Score (75.12)
+   Q6.  Top performer     : Shreya Pillai (95.00)
+   Q7.  Lowest performer  : Manish Jain (55.33)
+   Q8.  Attendance↔Math r  : 0.9940 (strong positive relationship)
+   Q9.  Attendance↔Overall: 0.9956 (strong positive relationship)
+   Q10. Gender performance: {'Female': 77.89, 'Male': 75.6}
+   Q11. High attendance (≥85%): 52 students (46.8%)
+   Q12. Anomalies found (IQR): 0 outlier observations
+   Q13. Strongest pattern: Higher attendance → higher scores.
+   Q14. Data quality issues: missing values, duplicates, out-of-range values.
+
+10. CORRELATION ANALYSIS
+----------------------------------------
+                       Math_Score  English_Score  Science_Score  Attendance_Percentage  Overall_Average
+Math_Score                 1.0000         0.9554         0.9864                 0.9940           0.9956
+English_Score              0.9554         1.0000         0.9308                 0.9677           0.9722
+Science_Score              0.9864         0.9308         1.0000                 0.9817           0.9877
+Attendance_Percentage      0.9940         0.9677         0.9817                 1.0000           0.9956
+Overall_Average            0.9956         0.9722         0.9877                 0.9956           1.0000
+
+11. ANOMALY DETECTION
+----------------------------------------
+   Method: IQR (1.5×IQR rule)
+   Total statistical outliers detected: 0
+   Outliers retained (not removed) – genuine variation.
+
+12. HYPOTHESIS TESTING
+----------------------------------------
+   Statistical tests performed with α = 0.05 significance level:
+
+   Test: Attendance vs Math Score
+     Method: Pearson correlation
+     Statistic: 0.9940
+     P-value: 0.000000
+     Decision: Reject H0
+     Interpretation: There IS a statistically significant relationship (p < 0.05).
+
+   Test: Attendance vs Overall Performance
+     Method: Pearson correlation
+     Statistic: 0.9956
+     P-value: 0.000000
+     Decision: Reject H0
+     Interpretation: There IS a statistically significant relationship (p < 0.05).
+
+   Test: Gender Performance Difference
+     Method: Independent t-test
+     Statistic: 1.1168
+     P-value: 0.266664
+     Decision: Fail to reject H0
+     Interpretation: There is NO statistically significant difference (p ≥ 0.05).
+
+
+13. VISUALIZATION ANALYSIS
+----------------------------------------
+   1. math_distribution.png     – Math score distribution with mean/median
+   2. subject_average.png        – Average scores per subject
+   3. attendance_vs_math.png     – Scatter with trend line
+   4. gender_distribution.png    – Bar + pie chart of gender
+   5. score_comparison.png       – Boxplot comparison of subjects
+   6. correlation_heatmap.png    – Heatmap of all key variables
+
+14. KEY INSIGHTS
+----------------------------------------
+   • English is the strongest subject.
+   • Science is the weakest subject.
+   • 46.8% of students have high attendance (≥85%).
+   • Best performer: Shreya Pillai (avg 95.00).
+   • Attendance has a positive relationship with academic performance.
+   • The dataset had realistic data-quality issues that were identified and resolved.
+   • Subject scores are strongly correlated with each other.
+   • Statistical hypothesis testing validates observed relationships.
+
+15. CONCLUSION
+----------------------------------------
+   This EDA successfully explored the Student Performance dataset.
+   Key data-quality issues were identified and resolved using appropriate
+   statistical techniques (median imputation, duplicate removal).
+   The analysis revealed meaningful patterns: attendance is positively
+   associated with academic performance, and subject scores are strongly
+   inter-correlated. Six professional visualizations were generated.
+   Statistical hypothesis testing confirmed the significance of key relationships.
+   The cleaned dataset and full analysis are ready for further modelling.
+
+=================================================================
+  END OF ANALYSIS REPORT
+=================================================================
